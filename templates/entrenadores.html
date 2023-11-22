@@ -1,0 +1,94 @@
+{%extends 'base.html'%}
+
+{%block title%}PowerGym - Entrenador{%endblock%}
+
+{%block content%}
+<br><br><br><br>
+<style>
+    body {
+        background-color: black;
+        font-family: 'Arial', sans-serif;
+        padding-top: 50px; /* Ajuste para la barra de navegación si es necesario */
+    }
+
+    .container {
+        margin-top: 30px;
+    }
+
+    .trainer-card {
+        margin-bottom: 30px;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        background-color:white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .trainer-card:hover {
+        transform: scale(1.05);
+    }
+
+    .trainer-img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .trainer-info {
+        padding: 20px;
+    }
+
+    .trainer-name {
+        color: yellow;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .trainer-description {
+        font-size: 1.2em;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+</style>
+
+<h1 style="text-align: center;color: yellow;">Nuestros Entrenadores</h1>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <div class="card trainer-card">
+            <img src="{{ url_for('static', filename='img/inst1.jpeg') }}" class="card-img-top trainer-img" alt="Entrenador 1">
+            <div class="card-body trainer-info">
+                <h5 class="card-title trainer-name">John Doe</h5>
+                <p class="card-text trainer-description">Experto en entrenamiento de fuerza y acondicionamiento físico. Motivador y apasionado por la salud y el bienestar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entrenador 2 -->
+    <div class="col-md-4">
+        <div class="card trainer-card">
+            <img src="{{ url_for('static', filename='img/inst3.jpeg') }}" class="card-img-top trainer-img" alt="Entrenador 2">
+            <div class="card-body trainer-info">
+                <h5 class="card-title trainer-name">Jane Smith</h5>
+                <p class="card-text trainer-description">Especializada en yoga y mindfulness. Ayuda a los clientes a alcanzar equilibrio mental y físico a través de prácticas holísticas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card trainer-card">
+            <img src="{{ url_for('static', filename='img/inst2.jpeg') }}" class="card-img-top trainer-img" alt="Entrenador 2">
+            <div class="card-body trainer-info">
+                <h5 class="card-title trainer-name">Frederic Merch</h5>
+                <p class="card-text trainer-description">Nuestro apasionado entrenador especializado en fitness, fusionando experiencia y energía para impulsar tu rendimiento. Con enfoque en métodos innovadores y motivación constante, te guiará hacia tus metas con un plan personalizado</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+{%endblock%}

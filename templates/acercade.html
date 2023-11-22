@@ -1,0 +1,68 @@
+{%extends 'base.html'%}
+
+{%block title%}PowerGym - Acercade{%endblock%}
+
+{%block content%}
+<br><br><br>
+<div class="container">
+    <h1 class="text-center my-4" style="color: yellow; font-size: 60px;">Sobre <span style="color: white; font-size: 60px;">Nosotros</span></h1>
+    
+    <div class="card bg-dark text-white">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title" style="color: yellow; font-size: 45px; text-align: center;">Nuestra Historia</h2>
+              <p class="card-text" style="font-size: 25px; text-align: justify;">En PowerGym, nos enorgullece ser mucho más que un gimnasio; somos una comunidad apasionada que comparte la visión de llevar una vida activa y saludable. Desde nuestros modernos y completos equipos hasta nuestras clases dirigidas por entrenadores expertos, estamos comprometidos en ayudarte a alcanzar tus metas de fitness y bienestar.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/fondo1.jpg') }}" class="card-img" alt="Imagen">
+          </div>
+        </div>
+    </div>
+
+    <div class="card bg-dark text-white my-4">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='img/fondo2.jpg') }}" class="card-img" alt="Imagen">
+            </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title" style="color: yellow; font-size: 45px; text-align: center;">Visión</h2>
+              <p class="card-text" style="font-size: 25px; text-align: justify;">En PowerGym, nuestra visión es ser el gimnasio de referencia en Colombia y ser reconocidos por ser líderes en la promoción de un estilo de vida saludable en nuestra comunidad. Buscamos inspirar a las personas a alcanzar su máximo potencial en términos de fitness y bienestar, convirtiéndonos en el catalizador de cambios positivos en sus vidas.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card bg-dark text-white my-4">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title" style="color: yellow; font-size: 45px; text-align: center;">Misión</h2>
+              <p class="card-text" style="font-size: 25px; text-align: justify;">Nuestra misión en PowerGym es proporcionar a nuestros miembros un entorno inspirador y de apoyo que fomente la salud, el fitness y el bienestar en todas sus dimensiones. Nos esforzamos por ofrecer programas de entrenamiento excepcionales, nutrición experta y un equipo de entrenadores dedicados para ayudarte a alcanzar tus objetivos y vivir una vida más saludable.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/fondo3.jpg') }}" class="card-img" alt="Imagen">
+        </div>
+        </div>
+    </div>
+
+        <div class="card bg-dark text-white">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename='img/fondo4.jpg') }}" class="card-img" alt="Imagen">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 class="card-title" style="color: yellow; font-size: 45px;  text-align: center;" >Nuestro Equipo</h2>
+                        <p class="card-text" style="font-size: 25px; text-align: justify;">En PowerGym, contamos con un equipo de entrenadores altamente capacitados y apasionados que están comprometidos a brindarte el apoyo que necesitas en tu viaje hacia un estilo de vida más saludable. Nuestro personal está aquí para ayudarte a establecer y alcanzar tus metas de fitness, ofrecer orientación en nutrición y proporcionar un ambiente acogedor y motivador para que te sientas como en casa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br><br>
+</div>
+
+{%endblock%}

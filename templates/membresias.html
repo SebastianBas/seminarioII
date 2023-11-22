@@ -1,0 +1,128 @@
+{%extends 'base.html'%}
+
+{%block title%}PowerGym - Membresias{%endblock%}
+
+{%block content%}
+<br><br><br>
+<style>
+    body {
+        background-color: black;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        background-color: black;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .membership-card {
+        margin-bottom: 30px;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        background-color: white;
+    }
+
+    .membership-card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-title {
+        color: #e0a800;
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        align-items: center;
+    }
+
+    .card-subtitle {
+        color: #e0a800;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .card-text {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .price {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: rgb(13, 201, 13);
+    }
+
+    .btn-register {
+            background-color: #e0a800; /* Amarillo quemado */
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-register:hover {
+            background-color: #d09600;
+        }
+</style>
+
+
+<div class="container mt-5">
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="mb-4" style="color: white;font-size: 50px;">Descubre nuestras Membresías</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card membership-card">
+            <div class="card-body">
+                <h5 class="card-title">Membresía Básica</h5>
+                <p class="card-subtitle">Perfecta para principiantes</p>
+                <p class="card-text">Acceso a la sala de pesas y áreas de cardio. Participación en clases grupales estándar. Asesoramiento básico con entrenadores.</p>
+                <p class="price">$50.000/mes</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-register">¡Regístrate ahora!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membresía Premium -->
+    <div class="col-md-4">
+        <div class="card membership-card">
+            <div class="card-body">
+                <h5 class="card-title">Membresía Premium</h5>
+                <p class="card-subtitle">Experiencia de lujo</p>
+                <p class="card-text">Acceso completo a todas las áreas, incluyendo instalaciones de lujo. Clases grupales premium. Asesoramiento más personalizado con entrenadores. Descuentos en servicios adicionales.</p>
+                <p class="price">$100.000/mes</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-register">¡Regístrate ahora!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membresía Estudiantil -->
+    <div class="col-md-4">
+        <div class="card membership-card">
+            <div class="card-body">
+                <h5 class="card-title">Membresía Estudiantil</h5>
+                <p class="card-subtitle">Especial para estudiantes</p>
+                <p class="card-text">Tarifas reducidas para estudiantes. Acceso a servicios básicos y áreas de entrenamiento.</p>
+                <p class="price">$30.000/mes</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-register">¡Regístrate ahora!</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{%endblock%}

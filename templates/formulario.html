@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+{%block title%}PowerGym - Formulario{%endblock%}
+
+{%block content%}
+<br><br><br><br>
+<style>
+    .btn-amarillo {
+        background-color: yellow;
+        color: #000000;
+    }
+    .btn-amarillo:hover {
+        background-color: yellow;
+        color: #000000;
+    }
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="{{ url_for('static', filename='img/form.jpeg') }}" alt="Logo del Gimnasio" class="logo">
+    <h2 class="text-center" style="color: yellow;">¡Únete a nosotros!</h2>
+    <form>
+        <div class="form-group">
+            <label for="nombre" style="color: aliceblue;">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="apellido" style="color: aliceblue;">Apellido</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido">
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="email" style="color: aliceblue;">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="telefono" style="color: aliceblue;">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono">
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="direccion" style="color: aliceblue;">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="Ingresa tu dirección">
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="ciudad" style="color: aliceblue;">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" placeholder="Ingresa tu ciudad">
+            <br>
+        </div>
+        <div class="text-center">
+            <button type="submit"class="btn btn-amarillo">Unete Con Los Mejores!!</button>
+        </div>
+    </form>
+</div>
+
+{%endblock%}

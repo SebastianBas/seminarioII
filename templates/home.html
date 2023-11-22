@@ -1,0 +1,69 @@
+{%extends 'base.html'%}
+
+{%block title%}PowerGym - Home{%endblock%}
+
+{%block content%}
+<div class="container">
+    <video src="/static/img/media.mp4" class="embed-responsive-item h-100 w-100" controls autoplay muted></video>
+</div>
+
+<div style="background-color: black; color: white; font-size: 2em; font-family: 'Playfair Display', serif; text-align: center; padding: 20px;">
+    <p>"En <strong style="color: yellow;">PowerGym</strong>, cada sudor, cada esfuerzo, cada gramo de determinación te acerca a tu mejor versión. ¡Ven y descubre tu potencial oculto con nosotros!"</p>
+</div>
+
+
+<section class="hero text-white text-center" style="background-color: black;">
+    <div class="container py-5">
+        <h1 class="display-4">Bienvenido a PowerGym</h1>
+        <p class="lead">Donde cada esfuerzo cuenta.</p>
+        <a href="{{url_for('formulario')}}" class="btn btn-light btn-lg">Únete a nosotros hoy</a>
+    </div>
+</section>
+
+
+<section class="features py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Equipamiento moderno</h3>
+                <p>Ofrecemos una amplia gama de equipos de gimnasio de alta calidad y modernos para ayudarte a alcanzar tus metas de fitness.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Clases de grupo</h3>
+                <p>Nuestras clases de grupo son una excelente manera de mantenerse motivado, desafiarse a sí mismo y divertirse mientras hace ejercicio.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Entrenadores profesionales</h3>
+                <p>Nuestros entrenadores profesionales están aquí para guiarte y ayudarte a alcanzar tus metas de fitness.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials bg-light py-5">
+    <div class="container">
+        <h2 class="text-center">Lo que nuestros miembros dicen</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <blockquote class="blockquote">
+                    <p>"PowerGym ha cambiado mi vida. Los entrenadores son increíbles y el ambiente es muy acogedor."</p>
+                    <footer class="blockquote-footer">Miembro satisfecho</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4">
+                <blockquote class="blockquote">
+                    <p>"Las clases de grupo son muy divertidas y motivadoras. ¡Recomiendo PowerGym a todos!"</p>
+                    <footer class="blockquote-footer">Miembro satisfecho</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4">
+                <blockquote class="blockquote">
+                    <p>"El equipamiento es moderno y siempre está limpio. Nuestro Gimnasio es el mejor gimnasio al que he ido."</p>
+                    <footer class="blockquote-footer">Miembro satisfecho</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
