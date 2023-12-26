@@ -1,0 +1,45 @@
+{% extends 'base3.html' %}
+
+{% block title %}PowerGym - Productos{% endblock %}
+
+{% block content %}
+<br><br><br>
+<h1 class="text-center" style="font-family: 'Copperplate', serif;">
+    <span style="color: yellow;">Bienvenido</span> <span style="color: white;">a los productos de</span>
+    <span style="color: yellow;">Power</span><span style="color:aliceblue;">GYM</span>
+</h1>
+<br><br>
+
+<div class="container">
+    <div id="productos-container" class="row">
+        <!-- Aquí se cargarán dinámicamente las tarjetas de productos -->
+    </div>
+
+    <hr>
+
+    <h2 class="text-center" style="font-family: 'Copperplate', serif; color: white;">Agregar Producto</h2>
+    <form id="formulario-producto" class="row">
+        <div class="col-md-4 mb-3">
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="colores">Colores Disponibles:</label>
+            <input type="text" class="form-control" id="colores" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="tallas">Tallas Disponibles:</label>
+            <input type="text" class="form-control" id="tallas" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="precio">Precio:</label>
+            <input type="number" class="form-control" id="precio" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <button type="button" class="btn btn-success" onclick="agregarProducto()">Agregar</button>
+        </div>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/productos.js') }}"></script>
+{% endblock %}

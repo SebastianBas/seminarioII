@@ -1,82 +1,67 @@
-{%extends 'base.html'%}
+<!-- ropa.html -->
+{% extends 'base2.html' %}
 
-{%block title%}PowerGym - Productos{%endblock%}
+{% block title %}PowerGym - Productos{% endblock %}
 
-{%block content%}
-<br><br><br>
-<h1 class="text-center" style="font-family: 'Copperplate', serif;">
-    <span style="color: yellow;">Bienvenido</span> <span style="color: white;">a los productos de</span>
-    <span style="color: yellow;">Power</span><span style="color:aliceblue;">GYM</span>
-</h1>
-<br><br>
-<div class="container">
-    <div class="row">
+{% block content %}
+  <br><br><br>
+  <h1 class="text-center" style="font-family: 'Copperplate', serif;">
+      <span style="color: yellow;">Bienvenido</span> <span style="color: white;">a los productos de</span>
+      <span style="color: yellow;">Power</span><span style="color: aliceblue;">GYM</span>
+  </h1>
+  <br><br>
+  <div class="container">
+      <div class="row">
+    {% for producto in productos %}
         <div class="col-sm-4 mb-4">
             <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img6.webp') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Faldas Deportivas</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco <br> Tallas: S,M,L,XL <br> Precio: 40.000</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/' + producto.imagen) }}" style="width: 100%; height: 400px;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="color: yellow;">{{ producto.nombre }}</h5>
+                                <p class="card-text">Colores Disponibles: {{ producto.colores }} <br> Tallas: {{ producto.tallas }} <br> Precio: {{ producto.precio }}</p>
+                                <a href="#" class="btn btn-primary rounded-pill agregar-carrito" data-producto-id="{{ producto.producto_id }}" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+            
+        {% endfor %}
+      </div>
+  </div>
 
-        <div class="col-sm-4 mb-4">
-            <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img1.jpeg') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Conjuntos Deportivos</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco, rosa <br> Tallas: S,M,L,XL <br> Precio: 100.000</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 mb-4">
-            <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img3.jpeg') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Shorts Deportivos</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco, verde, rosa <br> Tallas: S,M,L,XL <br> Precio: 30.000</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 mb-4">
-            <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img4.webp') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Camisa</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco <br> Tallas: S,M,L,XL <br> Precio: 70.000.</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 mb-4">
-            <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img5.jpg') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Conjunto Deportivo</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco <br> Tallas: S,M,L,XL <br> Precio: 120.000</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 mb-4">
-            <div class="card" style="background-color: black; color: white;">
-                <img class="card-img-top" src="{{ url_for('static', filename='img/img2.jpeg') }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
-                <div class="card-body text-center">
-                    <h5 class="card-title" style="color: yellow;">Camisa mas Pantalon</h5>
-                    <p class="card-text">Colores Disponibles: negro, blanco <br> Tallas: S,M,L,XL <br> Precio: 90.000</p>
-                    <a href="#" class="btn btn-primary rounded-pill" style="font-weight: bold; color: black; background-color: yellow; border-color: yellow;">Agregar al carrito</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="justify-content: center;" class="pagination">
+    {{ pagination.links }}
 </div>
 
-{%endblock%}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Manejar el clic del botón "Agregar al carrito"
+        $(".agregar-carrito").click(function (event) {
+            event.preventDefault();
+
+            // Obtener el ID del producto desde el atributo de datos
+            var productoId = $(this).data("producto-id");
+
+            // Realizar la solicitud AJAX para agregar al carrito
+            $.ajax({
+                type: "POST",
+                url: "/agregar-al-carrito/" + productoId,
+                success: function (response) {
+                    // Redirigir a la página del carrito después de agregar
+                    window.location.href = "/ver-carrito";
+                },
+                error: function (error) {
+                    console.error("Error al agregar al carrito:", error.responseJSON.error);
+                    // Manejar el error según sea necesario
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}
+
+

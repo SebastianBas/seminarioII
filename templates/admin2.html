@@ -1,0 +1,71 @@
+{%extends 'base3.html'%}
+
+{%block title%}PowerGym - Productos{%endblock%}
+
+{%block content%}
+<br><br><br>
+<div class="container">
+    <div class="card mt-3 w-25 mx-auto d-block">
+        <div class="card-body div-flex">
+            <h3 style="color:black; text-align: center;">Agregar Horario</h3>
+            <img src="{{url_for('static', filename='img/calendar-days-solid.svg')}}" width="25" class="mx-auto d-block" data-bs-toggle="modal" data-bs-target="#horario-modal">
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center" style="font-family: 'Copperplate', serif;">
+            <span style="color: yellow;">Gestion</span> <span style="color: white;">Horarios</span>
+        </h1>
+        {% for horario in horarios %}
+    <div class="col-sm-4 mb-4">
+        <br><br>
+        <div class="card" style="background-color: black; color: white;">
+            <div class="card-body text-center">
+                <h5 class="card-title" style="color: yellow;">{{ horario.nombre }}</h5>
+                <p class="card-text">Hora de inicio: {{ horario.horaInicio }} <br> Hora de fin: {{ horario.horaFin }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <form action="/eliminar-horario" method="POST">
+                    <input type="hidden" value="{{ horario.id_horario }}" name="horario_id">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                </form>
+                <!--<button type="button" class="btn btn-outline-primary btn-sm" onclick="openEditModal('{{ horario.nombre }}', '{{ horario.hora_inicio }}', '{{ horario.hora_fin }}')">
+                    Editar
+                </button>-->
+            </div>
+        </div>
+    </div>
+{% endfor %}
+        
+    </div>
+</div>
+
+<!-- Modal agregar -->
+<div class="modal fade" id="horario-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">NUEVO HORARIO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/agregar-horarios" method="post" enctype="multipart/form-data">
+                    <label>Titulo</label>
+                    <input type="text" class="form-control mb-3" name="nombre">
+                    <label>Hora Inicio</label>
+                    <input type="time" class="form-control mb-3" name="horaInicio">
+                    <label>Hora Fin</label>
+                    <input type="time" class="form-control mb-3" name="horaFin">
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+{%endblock%}

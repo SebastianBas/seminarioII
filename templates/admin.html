@@ -1,0 +1,78 @@
+{%extends 'base3.html'%}
+
+{%block title%}PowerGym - Productos{%endblock%}
+
+{%block content%}
+<br><br><br>
+<div class="container">
+    
+    <div class="card mt-3 w-25 mx-auto d-block">
+        <div class="card-body div-flex">
+            <h3 style="color:black; text-align: center;">Agregar Productos</h3>
+            <img src="{{url_for('static', filename='img/circle-plus-solid.svg')}}" width="25" class="mx-auto d-block" data-bs-toggle="modal" data-bs-target="#admin-modal">
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center" style="font-family: 'Copperplate', serif;">
+            <span style="color: yellow;">Gestion</span> <span style="color: white;">de los productos de</span>
+            <span style="color: yellow;">Power</span><span style="color: aliceblue;">GYM</span>
+        </h1>
+        {% for producto in productos %}
+            <div class="col-sm-4 mb-4">
+                <br><br>
+                <div class="card" style="background-color: black; color: white;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/' + producto.imagen) }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="color: yellow;">{{ producto.nombre }}</h5>
+                        <p class="card-text">Colores Disponibles: {{ producto.colores }} <br> Tallas: {{ producto.tallas }} <br> Precio: {{ producto.precio }}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <form action="/eliminar-producto" method="POST">
+                            <input type="hidden" value="{{producto.producto_id}}" name="producto_id">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button> 
+                        </form>
+
+                        <!--<button type="button" class="btn btn-outline-primary btn-sm" onclick="openEditModal('{{ producto.nombre }}', '{{ producto.colores }}', '{{ producto.tallas }}', '{{ producto.precio }}')">
+                            Editar
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Modal agregar -->
+<div class="modal fade" id="admin-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">NUEVO ARTICULO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/agregar-productos" method="post" enctype="multipart/form-data">
+                    <label>Titulo</label>
+                    <input type="text" class="form-control mb-3" name="nombre">
+                    <label>Colores</label>
+                    <input type="text" class="form-control mb-3" name="colores">
+                    <label>Talla</label>
+                    <input type="text" class="form-control mb-3" name="tallas">
+                    <label>Precio</label>
+                    <input type="number" class="form-control mb-3" name="precio">
+                    <label>Imagen</label>
+                    <input type="file" class="form-control mb-3" name="imagen" accept=".jpg, .png, .jpeg">
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+{%endblock%}

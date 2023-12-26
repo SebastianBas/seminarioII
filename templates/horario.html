@@ -1,147 +1,27 @@
-{%extends 'base.html'%}
+{%extends 'base2.html'%}
 
 {%block title%}PowerGym - Horarios{%endblock%}
 
 {%block content%}
 <br><br><br>
-<style>
-    body {
-        background-color: #000000;
-        font-family: 'Arial', sans-serif;
-    }
-
-    .container {
-        margin-top: 30px;
-    }
-
-    .card-header {
-        background-color: #ffc107 !important;
-        color: #fff;
-    }
-
-    .table th, .table td {
-        text-align: center;
-    }
-
-    .btn-agendar {
-        background-color: #28a745;
-        color: #fff;
-        padding: 5px 10px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn-agendar:hover {
-        background-color: #218838;
-    }
-
-    .alert-agendado {
-        margin-top: 15px;
-        display: none;
-    }
-</style>
-<title>Calendario - Power Gym</title>
-</head>
-<body>
-
-<div class="container mt-4">
-<h1 class="text-center" style="color: white;">Calendario</h1>
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header bg-warning text-white">
-                <h5 class="card-title">Noviembre 2023</h5>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center" style="font-family: 'Copperplate', serif;">
+            <span style="color: yellow;">Horarios</span> <span style="color: white;">Disponibles</span>
+        </h1>
+        {% for horario in horarios %}
+    <div class="col-sm-4 mb-4">
+        <br><br>
+        <div class="card" style="background-color: black; color: white;">
+            <div class="card-body text-center">
+                <h5 class="card-title" style="color: yellow;">{{ horario.nombre }}</h5>
+                <p class="card-text">Hora de inicio: {{ horario.horaInicio }} <br> Hora de fin: {{ horario.horaFin }}</p>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Lun</th>
-                            <th>Mar</th>
-                            <th>Mié</th>
-                            <th>Jue</th>
-                            <th>Vie</th>
-                            <th>Sáb</th>
-                            <th>Dom</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-body"></tbody>
-                </table>
-            </div>
+            
         </div>
     </div>
-</div>
-</div>
-
-<!-- Modal para agendar -->
-<div class="modal fade" id="agendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agendar Clase</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <!-- Formulario para la información de la clase -->
-            <form id="agendarForm">
-                <div class="form-group">
-                    <label for="clase">Nombre de la Clase</label>
-                    <input type="text" class="form-control" id="clase" required>
-                </div>
-                <div class="form-group">
-                    <label for="hora">Hora</label>
-                    <input type="time" class="form-control" id="hora" required>
-                </div>
-                <button type="submit" class="btn btn-success">Agendar</button>
-            </form>
-            <!-- Cuadro que aparece después de agendar la clase -->
-            <div class="alert alert-success alert-agendado" role="alert" id="agendadoMensaje">
-                Clase agendada con éxito para el día lunes, <span id="agendadoDia"></span> a las <span id="agendadoHora"></span>.
-            </div>
-        </div>
+{% endfor %}
+        
     </div>
 </div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-// Script para generar dinámicamente los días del mes
-$(document).ready(function () {
-    var daysInMonth = 30; // Número de días en noviembre
-    var dayCounter = 1;
-
-    for (var row = 1; row <= 5; row++) {
-        $('#calendar-body').append('<tr>');
-        for (var col = 1; col <= 7; col++) {
-            $('#calendar-body').append('<td><button type="button" class="btn btn-agendar" data-toggle="modal" data-target="#agendarModal" data-dia="' + getDayOfWeek(dayCounter) + '">' + dayCounter + '</button></td>');
-            dayCounter++;
-        }
-        $('#calendar-body').append('</tr>');
-    }
-});
-
-// Función para obtener el día de la semana a partir del número del día
-function getDayOfWeek(dayNumber) {
-    var date = new Date();
-    date.setDate(dayNumber);
-    var daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-    return daysOfWeek[date.getDay()];
-}
-
-// Script para mostrar el cuadro de éxito después de enviar el formulario
-$('#agendarForm').submit(function (event) {
-    event.preventDefault();
-    var claseDia = $('#agendarForm #clase').val();
-    var claseHora = $('#agendarForm #hora').val();
-    $('#agendadoDia').text(claseDia);
-    $('#agendadoHora').text(claseHora);
-    $('.alert-agendado').fadeIn().delay(2000).fadeOut();
-});
-</script>
-
 {%endblock%}

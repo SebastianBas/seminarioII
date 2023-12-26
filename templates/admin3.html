@@ -1,0 +1,66 @@
+{%extends 'base3.html'%}
+
+{%block title%}PowerGym - Productos{%endblock%}
+
+{%block content%}
+<br><br><br>
+<div class="container">
+    <div class="card mt-3 w-25 mx-auto d-block">
+        <div class="card-body div-flex">
+            <h3 style="color:black; text-align: center;">Agregar Entrenador</h3>
+            <img src="{{url_for('static', filename='img/dumbbell-solid.svg')}}" width="25" class="mx-auto d-block" data-bs-toggle="modal" data-bs-target="#entrenador-modal">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for entrenador in entrenadores %}
+                <div class="col-sm-4 mb-4">
+                    <br><br>
+                    <div class="card" style="background-color: black; color: white;">
+                        <img class="card-img-top" src="{{ url_for('static', filename='img/' + entrenador.foto) }}" style="width: 100%; height: 400px; object-fit: contain;" onmouseover="this.style.opacity=0.5;" onmouseout="this.style.opacity=1;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: yellow;">{{ entrenador.nombre }}</h5>
+                            <p class="card-text">{{ entrenador.descripcion }}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <form action="/eliminar-entrenador" method="POST">
+                                <input type="hidden" value="{{entrenador.id_entrenador}}" name="id_entrenador">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br><br>
+
+
+<!-- Modal agregar -->
+<div class="modal fade" id="entrenador-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">NUEVO ETRENADOR</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/agregar-entrenador" method="post" enctype="multipart/form-data">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control mb-3" name="nombre">
+                    <label>Descripcion</label>
+                    <input type="text" class="form-control mb-3" name="descripcion">
+                    <label>Foto</label>
+                    <input type="file" class="form-control mb-3" name="foto" accept=".jpg, .png, .jpeg">
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+{%endblock%}

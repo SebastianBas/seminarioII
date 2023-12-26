@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Error 404 - Página no encontrada{% endblock %}
+
+{% block content %}
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    .full-height {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    h1 {
+        color: #ffcc00;
+    }
+    p {
+        color: #ffffff;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+
+<div class="full-height">
+    <h1>Error 500</h1>
+    <img src="{{ url_for('static', filename='img/database.jpeg') }}" alt="Error 500 Image">
+</div>
+<br><br>
+    
+<br><br><br><br>
+{% endblock %}

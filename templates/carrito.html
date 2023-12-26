@@ -1,0 +1,121 @@
+{%extends 'base2.html'%}
+
+{%block title%}PowerGym - Entrenador{%endblock%}
+
+{%block content%}
+<br><br>
+
+<body class="bg-dark text-white" style="background-color: black;">
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Carrito de Compras</h1>
+
+        <!-- Agrega un elemento para mostrar el precio total -->
+        <p class="font-weight-bold" id="precio-total">Precio Total: $0.00</p>
+
+        {% for item in carrito %}
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{ url_for('static', filename='img/' + item.imagen) }}" alt="{{ item.nombre }}" class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.nombre }}</h5>
+                            <p class="card-text">Precio: ${{ item.precio }}</p>
+                            <p class="font-weight-bold total" style="color: black;" id="precio-total-{{ item.id_carrito }}">Total: ${{ '{:.2f}'.format(item.precio * item.cantidad) }}</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="cantidad-{{ item.id_carrito }}">Cantidad</label>
+                                </div>
+                                <input type="number" class="form-control cantidad" id="cantidad-{{ item.id_carrito }}" value="{{ item.cantidad }}" min="1" onchange="actualizarPrecioProducto('{{ item.id_carrito }}', '{{ item.precio }}')">
+                            </div>
+                            <button class="btn btn-danger" onclick="eliminarProducto('{{ item.id_carrito }}')">Eliminar</button>
+                            <!-- Agrega el botón de comprar -->
+                            <button class="btn btn-success" onclick="comprarYEliminar('{{ item.id_carrito }}', '{{ item.nombre }}', '{{ item.precio }}', '{{ item.cantidad }}')">Comprar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>    
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function eliminarProducto(idCarrito) {
+    if (confirm("¿Estás seguro de eliminar este producto del carrito?")) {
+        $.ajax({
+            type: "POST",
+            url: "/eliminar-del-carrito/" + idCarrito,
+            success: function (response) {
+                location.reload();
+                actualizarPrecioTotal();
+            },
+            error: function (error) {
+                console.error("Error al eliminar del carrito:", error.responseJSON.error);
+            }
+        });
+    }
+}
+
+function comprarYEliminar(idCarrito, nombre, precio, cantidad) {
+    if (confirm("¿Estás seguro de comprar este producto?")) {
+        const cantidadSeleccionada = parseInt($(`#cantidad-${idCarrito}`).val());
+
+        // Calcular el total para este producto
+        const precioTotalProducto = precio * cantidadSeleccionada;
+
+        // Enviar una solicitud para eliminar el producto del carrito
+        $.ajax({
+            type: "POST",
+            url: "/eliminar-del-carrito/" + idCarrito,
+            success: function (response) {
+                // Calcular el precio total de todos los productos en el carrito
+                let precioTotalCarrito = 0;
+                $(".card").each(function () {
+                    const cardId = $(this).find(".total").attr("id").replace("precio-total-", ""); // Obtener el ID de la tarjeta
+                    const cantidad = parseInt($(this).find(".cantidad").val());
+                    const precio = parseFloat($(this).find(".card-text").text().replace("Precio: $", ""));
+                    const precioTotalProducto = cantidad * precio;
+                    $(this).find(".total").text(`Total: $${precioTotalProducto.toFixed(2)}`);
+                    precioTotalCarrito += cantidad * precio;
+                });
+
+                // Mostrar el mensaje de alerta con el precio total del carrito
+                alert(`Compra exitosa: ${cantidadSeleccionada} ${nombre}(s) por un total de $${precioTotalProducto.toFixed(2)}. Precio total del carrito: $${precioTotalCarrito.toFixed(2)}`);
+
+                location.reload();
+                actualizarPrecioTotal(); // Llama a la función después de actualizar la interfaz
+            },
+            error: function (error) {
+                console.error("Error al eliminar del carrito:", error.responseJSON.error);
+            }
+        });
+    }
+}
+
+
+    
+        function actualizarPrecioProducto(idCarrito, precio) {
+            const cantidad = parseInt($(`#cantidad-${idCarrito}`).val());
+            const precioTotal = precio * cantidad;
+            $(`#precio-total-${idCarrito}`).text(`Total: $${precioTotal.toFixed(2)}`);
+            actualizarPrecioTotal();
+        }
+    
+        function actualizarPrecioTotal() {
+            let precioTotal = 0;
+    
+            $(".card").each(function () {
+                const cantidad = parseInt($(this).find(".cantidad").val());
+                const precio = parseFloat($(this).find(".card-text").text().replace("Precio: $", ""));
+                precioTotal += cantidad * precio;
+            });
+    
+            $("#precio-total").text(`Precio Total: $${precioTotal.toFixed(2)}`);
+        }
+    </script>
+{%endblock%}
