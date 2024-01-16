@@ -23,6 +23,8 @@ from flask_mail import Message
 from flask_babel import Babel, _
 from forms import LanguageForm
 from app import LanguageForm
+from flask_wtf import FlaskForm
+from flask import Markup
 
 
 logging.basicConfig(filename="logs.log", format="%(levelname)s:%(name)s:%(message)s", level=logging.DEBUG)
