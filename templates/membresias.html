@@ -74,7 +74,7 @@
 <div class="container mt-5">
 <div class="row">
     <div class="col-md-12 text-center">
-        <h2 class="mb-4" style="color: white;font-size: 50px;">Descubre nuestras Membresías</h2>
+        <h2 class="mb-4" style="color: white;font-size: 50px;">{{ _("Descubre nuestras Membresías") }}</h2>
     </div>
 </div>
 
@@ -82,13 +82,13 @@
     <div class="col-md-4">
         <div class="card membership-card">
             <div class="card-body">
-                <h5 class="card-title">Membresía Básica</h5>
-                <p class="card-subtitle">Perfecta para principiantes</p>
-                <p class="card-text">Acceso a la sala de pesas y áreas de cardio. Participación en clases grupales estándar. Asesoramiento básico con entrenadores.</p>
-                <p class="price">$50.000/mes</p>
+                <h5 class="card-title">{{ _("Membresía Básica") }}</h5>
+                <p class="card-subtitle">{{ _("Perfecta para principiantes") }}</p>
+                <p class="card-text">{{ _("Acceso a la sala de pesas y áreas de cardio. Participación en clases grupales estándar. Asesoramiento básico con entrenadores.") }}</p>
+                <p class="price">{{ _("$50.000/mes") }}</p>
             </div>
             <div class="card-footer text-center">
-                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">Registrate Ahora!</a>
+                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">{{ _("Regístrate Ahora!") }}</a>
             </div>
         </div>
     </div>
@@ -96,13 +96,13 @@
     <div class="col-md-4">
         <div class="card membership-card">
             <div class="card-body">
-                <h5 class="card-title">Membresía Premium</h5>
-                <p class="card-subtitle">Experiencia de lujo</p>
-                <p class="card-text">Acceso completo a todas las áreas, incluyendo instalaciones de lujo. Clases grupales premium. Asesoramiento más personalizado con entrenadores. Descuentos en servicios adicionales.</p>
-                <p class="price">$100.000/mes</p>
-            </div>
+                <h5 class="card-title">{{ _("Membresía Premium") }}</h5>
+                <p class="card-subtitle">{{ _("Experiencia de lujo") }}</p>
+                <p class="card-text">{{ _("Acceso completo a todas las áreas, incluyendo instalaciones de lujo. Clases grupales premium. Asesoramiento más personalizado con entrenadores. Descuentos en servicios adicionales.") }}</p>
+                <p class="price">{{ _("$100.000/mes") }}</p>
+            </div>            
             <div class="card-footer text-center">
-                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">Registrate Ahora!</a>
+                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">{{ _("Regístrate Ahora!") }}</a>
             </div>
         </div>
     </div>
@@ -110,13 +110,15 @@
     <div class="col-md-4">
         <div class="card membership-card">
             <div class="card-body">
-                <h5 class="card-title">Membresía Estudiantil</h5>
-                <p class="card-subtitle">Especial para estudiantes</p>
-                <p class="card-text">Tarifas reducidas para estudiantes. Acceso a servicios básicos y áreas de entrenamiento.</p>
-                <p class="price">$30.000/mes</p>
+                <div class="card-body">
+                    <h5 class="card-title">{{ _("Membresía Estudiantil") }}</h5>
+                    <p class="card-subtitle">{{ _("Especial para estudiantes") }}</p>
+                    <p class="card-text">{{ _("Tarifas reducidas para estudiantes. Acceso a servicios básicos y áreas de entrenamiento.") }}</p>
+                    <p class="price">{{ _("$30.000/mes") }}</p>
+                </div>                
             </div>
             <div class="card-footer text-center">
-                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">Registrate Ahora!</a>
+                <a href="{{url_for('login')}}" style="background-color: #d09600;" class="btn btn-light btn-lg">{{ _("Regístrate Ahora!") }}</a>
             </div>
         </div>
     </div>

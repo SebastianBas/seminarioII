@@ -7,7 +7,7 @@
 <div class="container">
     <div class="card mt-3 w-25 mx-auto d-block">
         <div class="card-body div-flex">
-            <h3 style="color:black; text-align: center;">Agregar Entrenador</h3>
+            <h3 style="color:black; text-align: center;">{{ _("Agregar Entrenador") }}</h3>
             <img src="{{url_for('static', filename='img/dumbbell-solid.svg')}}" width="25" class="mx-auto d-block" data-bs-toggle="modal" data-bs-target="#entrenador-modal">
         </div>
     </div>
@@ -25,7 +25,7 @@
                         <div class="card-footer d-flex justify-content-between">
                             <form action="/eliminar-entrenador" method="POST">
                                 <input type="hidden" value="{{entrenador.id_entrenador}}" name="id_entrenador">
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm">{{_("Eliminar")}}</button>
                             </form>
                         </div>
                     </div>
@@ -42,18 +42,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">NUEVO ETRENADOR</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ _("NUEVO ENTRENADOR") }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="/agregar-entrenador" method="post" enctype="multipart/form-data">
-                    <label>Nombre</label>
+                    <label>{{ _("Nombre") }}</label>
                     <input type="text" class="form-control mb-3" name="nombre">
-                    <label>Descripcion</label>
+
+                    <label>{{ _("Descripcion") }}</label>
                     <input type="text" class="form-control mb-3" name="descripcion">
-                    <label>Foto</label>
+
+                    <label>{{ _("Foto") }}</label>
                     <input type="file" class="form-control mb-3" name="foto" accept=".jpg, .png, .jpeg">
-                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+
+                    <button type="submit" class="btn btn-primary w-100">{{ _("Guardar") }}</button>
+
                 </form>
                 <br><br>
             </div>

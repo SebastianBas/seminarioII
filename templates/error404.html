@@ -29,6 +29,7 @@
 </style>
 
 <div class="full-height">
+    {{ form.hidden_tag() }}
     <h1>Error 404</h1>
     <p>Lo sentimos, la página que estás buscando no se encuentra.</p>
     <img src="{{ url_for('static', filename='img/not-found.jpeg') }}" alt="Error 404 Image">

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-rbs5z92Ug2a6HI3nCdfY5dGZSTz6bMzDQ79TmR8gEdP2lao95FhxF5yLNTzti1qV" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        
+
+        h2 {
+            color: rgb(0, 0, 0);
+        }
+
+        h4 {
+            color: yellow;
+        }
+
+        p {
+            color: white;
+        }
+
+        .item-container {
+            margin-bottom: 20px;
+            background-color: black;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        .total-container {
+            margin-top: 20px;
+            background-color: black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .total-text {
+            color: yellow;
+        }
+        .item-container {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    
+    <div style="background-color: black; color: white; font-size: 2em; font-family: 'Playfair Display', serif; text-align: center; padding: 20px;">
+        <p>"Gracias Por Comprar En <strong style="color: yellow;">PowerGym</strong></p>
+    </div>
+    <div style="background-color: black;">
+        <h2 style="color: white;">Resumen de Compra</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                {% for item in carrito %}
+                    <div class="col-md-4">
+                        <div class="item-container">
+                            <h4>{{ item.nombre }}</h4>
+                            <p>Precio: ${{ item.precio }}</p>
+                            <p>Cantidad: {{ item.cantidad }}</p>
+                            <p>Total: ${{ '{:.2f}'.format(item.precio * item.cantidad) }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="total-container">
+            <h1 class="total-text">Precio Total de la Compra: ${{ total_compra }}</h1>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-rL2+wrUdH/aOnz3RI3A8tNdGt+8B3U7eI3Z6pzwCC56ktpLMp1fNE+9PJoWq1lPl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-c3XKxpe5MOeCawGTo/dfRtO5FwxwDVjN0+afS+PttIpe1bR6JuAaqP+12UpoIqYh" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

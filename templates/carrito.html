@@ -7,12 +7,16 @@
 
 <body class="bg-dark text-white" style="background-color: black;">
     <div class="container mt-5">
-        <h1 class="text-center mb-5">Carrito de Compras</h1>
+        <h1 class="text-center mb-5">{{ _("Carrito de Compras") }}</h1>
 
-        <!-- Agrega un elemento para mostrar el precio total -->
-        <p class="font-weight-bold" id="precio-total">Precio Total: $0.00</p>
+    <!-- Agrega un elemento para mostrar el precio total -->
+    <p class="font-weight-bold" id="precio-total">{{ _("Precio Total:") }} $0.00</p>
+    <button class="btn btn-success" onclick="comprarTodo()">{{ _("Comprar Todo") }}</button>
+
+    <br>
 
         {% for item in carrito %}
+        <br>
             <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-4">
@@ -21,18 +25,17 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{{ item.nombre }}</h5>
-                            <p class="card-text">Precio: ${{ item.precio }}</p>
-                            <p class="font-weight-bold total" style="color: black;" id="precio-total-{{ item.id_carrito }}">Total: ${{ '{:.2f}'.format(item.precio * item.cantidad) }}</p>
+                            <p class="card-text">{{_("Precio:")}} ${{ item.precio }}</p>
+                            
+                            <p class="font-weight-bold total" style="color: black;" id="precio-total-{{ item.id_carrito }}">{{_("Total:")}} ${{ '{:.2f}'.format(item.precio * item.cantidad) }}</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="cantidad-{{ item.id_carrito }}">Cantidad</label>
+                                    <label class="input-group-text" for="cantidad-{{ item.id_carrito }}">{{_("Cantidad")}}</label>
                                 </div>
                                 <input type="number" class="form-control cantidad" id="cantidad-{{ item.id_carrito }}" value="{{ item.cantidad }}" min="1" onchange="actualizarPrecioProducto('{{ item.id_carrito }}', '{{ item.precio }}')">
                             </div>
-                            <button class="btn btn-danger" onclick="eliminarProducto('{{ item.id_carrito }}')">Eliminar</button>
-                            <!-- Agrega el botón de comprar -->
-                            <button class="btn btn-success" onclick="comprarYEliminar('{{ item.id_carrito }}', '{{ item.nombre }}', '{{ item.precio }}', '{{ item.cantidad }}')">Comprar</button>
-
+                            <button class="btn btn-danger" onclick="eliminarProducto('{{ item.id_carrito }}')">{{_("Eliminar")}}</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -56,6 +59,23 @@
             },
             error: function (error) {
                 console.error("Error al eliminar del carrito:", error.responseJSON.error);
+            }
+        });
+    }
+}
+
+function comprarTodo() {
+    if (confirm("¿Estás seguro de comprar todo?")) {
+        $.ajax({
+            type: "POST",
+            url: "/comprar",
+            success: function (response) {
+                // Manejar la respuesta del servidor (puedes mostrar un mensaje de éxito)
+                alert(response.message);
+                location.reload();  
+            },
+            error: function (error) {
+                console.error("Error al realizar la compra:", error.responseJSON.error);
             }
         });
     }

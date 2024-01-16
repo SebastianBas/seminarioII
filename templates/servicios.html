@@ -11,14 +11,12 @@
         <div class="card" style="background-color: black; color: white;">
           <img class="card-img-top" src="{{ url_for('static', filename='img/entrenamiento.jpg') }}" alt="Imagen del producto">
           <div class="card-body text-center">
-            <h5 class="card-title">Entrenamiento Personalizado</h5>
-            <p class="card-text">En power gym El entrenamiento personalizado es la opción perfecta para 
-                aquellos que buscan un enfoque altamente individualizado para alcanzar sus metas de salud y fitness.
-                Entendemos que cada persona es única, con objetivos y necesidades específicas.
-                Nuestro equipo de entrenadores personales certificados está dedicado a brindarte una experiencia
-                de acondicionamiento físico completamente personalizada y efectiva.
+            <h5 class="card-title">{{ _("Entrenamiento Personalizado") }}</h5>
+            <p class="card-text">
+                {{ _("En power gym El entrenamiento personalizado es la opción perfecta para aquellos que buscan un enfoque altamente individualizado para alcanzar sus metas de salud y fitness. Entendemos que cada persona es única, con objetivos y necesidades específicas. Nuestro equipo de entrenadores personales certificados está dedicado a brindarte una experiencia de acondicionamiento físico completamente personalizada y efectiva.") }}
             </p>
-            <a href="{{url_for('personalizado')}}" class="btn btn-warning" style="transition: all .2s;">Mas Información</a>
+
+            <a href="{{url_for('personalizado')}}" class="btn btn-warning" style="transition: all .2s;">{{ _("Mas Información") }}</a>
           </div>
         </div>
       </div>
@@ -27,12 +25,12 @@
         <div class="card" style="background-color: black; color: white;">
           <img class="card-img-top" src="{{ url_for('static', filename='img/membresia.jpg') }}" alt="Imagen">
           <div class="card-body text-center">
-            <h5 class="card-title">Membresias</h5>
-            <p class="card-text">En POWER GYM, creemos en la flexibilidad y la accesibilidad para que todos puedan disfrutar de una 
-                experiencia de fitness adaptada a sus necesidades. Ofrecemos una variedad de opciones de membresía diseñadas para 
-                satisfacer tus objetivos de acondicionamiento físico, tu estilo de vida y tu presupuesto.</p>
-            <a href="{{url_for('membresias')}}" class="btn btn-warning" style="transition: all .2s;">Mas Información</a>
-          </div>
+            <h5 class="card-title">{{ _("Membresias") }}</h5>
+            <p class="card-text">
+                {{ _("En POWER GYM, creemos en la flexibilidad y la accesibilidad para que todos puedan disfrutar de una experiencia de fitness adaptada a sus necesidades. Ofrecemos una variedad de opciones de membresía diseñadas para satisfacer tus objetivos de acondicionamiento físico, tu estilo de vida y tu presupuesto.") }}
+            </p>
+            <a href="{{ url_for('membresias') }}" class="btn btn-warning" style="transition: all .2s;">{{ _("Mas Información") }}</a>
+        </div>        
         </div>
       </div>
   
@@ -40,13 +38,13 @@
         <div class="card" style="background-color: black; color: white;">
           <img class="card-img-top" src="{{ url_for('static', filename='img/entrenador.jpg') }}" alt="Imagen del producto">
           <div class="card-body text-center">
-            <h5 class="card-title">Entrenadores</h5>
-            <p class="card-text">En POWER GYM, nuestros entrenadores son el corazón de nuestro compromiso contigo para alcanzar 
-                tus objetivos de fitness de manera segura y efectiva. Nuestro equipo de entrenadores altamente calificados no solo 
-                son expertos en su campo, sino que también son apasionados por tu éxito y bienestar general.</p>
-                <a href="{{ url_for('entrenador1') }}" class="btn btn-warning" style="transition: all .2s;">Más Información</a>
+              <h5 class="card-title">{{ _("Entrenadores") }}</h5>
+              <p class="card-text">
+                  {{ _("En POWER GYM, nuestros entrenadores son el corazón de nuestro compromiso contigo para alcanzar tus objetivos de fitness de manera segura y efectiva. Nuestro equipo de entrenadores altamente calificados no solo son expertos en su campo, sino que también son apasionados por tu éxito y bienestar general.") }}
+              </p>
+              <a href="{{ url_for('entrenador1') }}" class="btn btn-warning" style="transition: all .2s;">{{ _("Mas Información") }}</a>
           </div>
-        </div>
+      </div>      
       </div>
     </div>
   </div>

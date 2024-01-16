@@ -4,19 +4,32 @@ from flask import request, Response, session
 import os
 from flask import make_response
 from flask import abort
-from flask import render_template
+from flask import render_template, jsonify
 from flask import redirect, url_for, flash
 from werkzeug.utils import secure_filename
 from flask_paginate import Pagination, get_page_args
+
 
 from flask_sqlalchemy import SQLAlchemy
 
 from flask_mysqldb import MySQL, MySQLdb
 
 from MySQLdb import OperationalError
+import logging
+from pymysql import OperationalError 
+from flask_mail import Mail
+from flask_mail import Message
+
+from flask_babel import Babel, _
+from forms import LanguageForm
+from app import LanguageForm
+
+
+logging.basicConfig(filename="logs.log", format="%(levelname)s:%(name)s:%(message)s", level=logging.DEBUG)
 
 #inicializar aplicacion
 app = Flask(__name__)
+babel = Babel(app)
 
 app.config['UPLOAD_FOLDER'] = 'static/img'
 
@@ -29,6 +42,35 @@ app.config['MYSQL_CURSORCLASS']='DictCursor'
 
 mysql = MySQL(app)
 
+# Configuración del correo
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'fariceohb12@gmail.com'  
+app.config['MAIL_PASSWORD'] = 'nmmt vfwj hfwh afeg'        
+app.config['MAIL_DEFAULT_SENDER'] = 'fariceohb12@gmail.com'  
+
+mail = Mail(app)
+
+app.config['LANGUAGES'] = ['es', 'en']
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+app.config['DEBUG']=True
+
+#------Traduccion---
+@babel.localeselector
+def get_locale():
+    return session.get('language', 'es')
+
+@app.route('/change-language', methods=['POST'])
+def change_language():
+    form = LanguageForm()
+    if form.validate_on_submit():
+        session['language'] = form.language.data
+    return redirect(request.referrer or url_for('home'))
+
+
+
 
 @app.route('/acceso-login', methods=["GET", "POST"])
 def login():
@@ -36,6 +78,8 @@ def login():
         if request.method == 'POST' and 'txtCorreo' in request.form and 'txtPassword' in request.form:
             _correo = request.form['txtCorreo']
             _contraseña = request.form['txtPassword']
+
+            logging.info(f"Intento de inicio de sesión para el usuario {_correo}")
 
             cur = mysql.connection.cursor()
             cur.execute('SELECT * FROM usuarios WHERE correo = %s AND contraseña = %s', (_correo, _contraseña,))
@@ -48,23 +92,26 @@ def login():
                 session['nombre_usuario'] = account['nombre']  
 
                 if session['id_rol'] == 1:
-                    return redirect(url_for('prod'))  
+                    logging.info("Inicio de sesión exitoso para un administrador")
+                    return redirect(url_for('prod'))
                 elif session['id_rol'] == 2:
+                    logging.info("Inicio de sesión exitoso para un usuario")
                     return redirect(url_for('ropa'))  # Redirige a la página de usuario
 
         return render_template('login.html')
 
-    except OperationalError:
+    except OperationalError as e:
+        logging.error(f"Error operativo relacionado con la base de datos: {str(e)}")
         # Captura un error operativo relacionado con la base de datos y muestra la página de error 500
         return abort(500)
     except Exception as e:
+        logging.error(f"Error inesperado: {str(e)}")
         # Captura cualquier otro error y muestra la página de error 500
-        print(f"Error inesperado: {str(e)}")
         return abort(500)
-    
 
 @app.route('/cerrar-sesion')
 def cerrar_sesion():
+    logging.info("Cierre de sesión")
     session.clear()
     return redirect(url_for('home'))
 
@@ -108,26 +155,31 @@ def favicon():
 #rutas venv
 @app.route('/')
 def index():
-    return render_template('home.html')
+    form =  LanguageForm()
+    return render_template('home.html', form=form)
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    form =  LanguageForm()
+    return render_template('home.html',form=form)
 
 @app.route('/servicios')
 def servicios():
-    return render_template('servicios.html')
+    form =  LanguageForm()
+    return render_template('servicios.html',form=form)
 
 
 
 @app.route('/acercade')
 def acercade():
-    return render_template('acercade.html')
+    form =  LanguageForm()
+    return render_template('acercade.html',form=form)
 
 from flask_paginate import Pagination, get_page_args
 
 @app.route('/productos', methods=['GET'])
 def ropa():
+    form =  LanguageForm()
     page = request.args.get('page', 1, type=int)
 
     # Definir la cantidad de productos por página
@@ -147,39 +199,44 @@ def ropa():
     # Configurar la paginación
     pagination = Pagination(page=page, total=len(productos), per_page=productos_per_page, css_framework='bootstrap4')
 
-    return render_template('ropa.html', productos=productos_pagina, pagination=pagination)
+    return render_template('ropa.html', productos=productos_pagina, pagination=pagination,form=form)
 
 
 @app.route('/horarios', methods=['GET'])
 def horario1():
+    form =  LanguageForm()
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM horario")
     horarios = cur.fetchall()
     
-    return render_template('horario.html', horarios=horarios)
+    return render_template('horario.html', horarios=horarios,form=form)
 
 @app.route('/formulario')
 def formulario():
-    return render_template('formulario.html')
+    form =  LanguageForm()
+    return render_template('formulario.html',form=form)
 
 @app.route('/membresias')
 def membresias():
-    return render_template('membresias.html')
+    form =  LanguageForm()
+    return render_template('membresias.html',form=form)
 
 @app.route('/personalizado')
 def personalizado():
-    return render_template('personalizado.html')
+    form =  LanguageForm()
+    return render_template('personalizado.html',form=form)
 
 
 #--------------Producto-------------------
 
 @app.route('/producto', methods=['GET'])
 def prod():
+    form =  LanguageForm()
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM productos")
     productos = cur.fetchall()
 
-    return render_template('admin.html', productos=productos)
+    return render_template('admin.html', productos=productos,form=form)
 
 @app.route('/agregar-productos', methods=['POST'])
 def agregarPro():
@@ -222,6 +279,8 @@ def borraProducto():
     cur.execute(sql,data)
     mysql.connection.commit()
     return redirect('/producto')
+
+
 
 #-----------------Horario---------------------
 
@@ -266,19 +325,21 @@ def borrarHorario():
 
 @app.route('/entrenador', methods=['GET'])
 def entrenador():
+    form =  LanguageForm()
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM entrenadores")
     entrenadores = cur.fetchall()
 
-    return render_template('admin3.html', entrenadores=entrenadores)
+    return render_template('admin3.html', entrenadores=entrenadores,form=form)
 
 @app.route('/entrenadores', methods=['GET'])
 def entrenador1():
+    form =  LanguageForm()
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM entrenadores")
     entrenadores = cur.fetchall()
 
-    return render_template('entrenadores.html', entrenadores=entrenadores)
+    return render_template('entrenadores.html', entrenadores=entrenadores, form=form)
 
 
 
@@ -331,7 +392,13 @@ def eliminarEntrenador():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error404.html'), 404
+    try:
+        form = LanguageForm()
+        return render_template('error404.html', form=form), 404
+    except Exception as ex:
+        print(f"Error al crear el formulario: {str(ex)}")
+        return render_template('error404.html'), 404
+
 
 @app.errorhandler(500)
 def database_error(e):
@@ -344,7 +411,7 @@ from flask import jsonify
 
 @app.route('/ver-carrito')
 def ver_carrito():
-
+    form =  LanguageForm()
     if 'id' not in session:
         return redirect(url_for('login'))
 
@@ -393,7 +460,130 @@ def agregar_al_carrito(producto_id):
     return jsonify({'message': 'Producto agregado al carrito exitosamente'})
 
 
+def enviar_resumen_compra(correo_destino, resumen):
+    try:
+        subject = 'Resumen de Compra'
+        sender = app.config['MAIL_DEFAULT_SENDER']
+        message = Message(subject, sender=sender, recipients=[correo_destino])
+        message.html = resumen
+        mail.send(message)
+        return True
+    except Exception as e:
+        print(f"Error al enviar el correo: {str(e)}")
+        return False
+
+
+def obtener_correo_usuario(id_usuario):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT correo FROM usuarios WHERE id = %s", (id_usuario,))
+    usuario = cur.fetchone()
+    cur.close()
+
+    if usuario:
+        return usuario['correo']
+    else:
+        return None
+
+def calcular_total_compra(carrito):
+    total_compra = 0
+    for item in carrito:
+        total_compra += item['precio'] * item['cantidad']
+    return total_compra
+    
+
+@app.route('/comprar', methods=['POST'])
+def comprar():
+    try:
+        id_usuario = session['id']
+        usuario_correo = obtener_correo_usuario(id_usuario)
+
+        # Obtiene los detalles del carrito
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT productos.nombre, productos.precio, carrito.cantidad FROM carrito INNER JOIN productos ON carrito.id_producto = productos.producto_id WHERE carrito.id_usuario = %s", (id_usuario,))
+        carrito = cur.fetchall()
+        cur.close()
+
+        # Calcula el total de la compra
+        total_compra = calcular_total_compra(carrito)
+
+        # Genera la factura o resumen en HTML (usando el template resumen_compra.html)
+        resumen_html = render_template('resumen.html', carrito=carrito, total_compra=total_compra)
+
+        # Configura el mensaje de correo
+        subject = 'Resumen de Compra'
+        sender = app.config['MAIL_DEFAULT_SENDER']
+        message = Message(subject, sender=sender, recipients=[usuario_correo])
+        message.html = resumen_html  # Asigna directamente el HTML generado
+
+        # Envío de correo electrónico con el resumen adjunto
+        if enviar_resumen_compra(usuario_correo, resumen_html):
+            print("Correo electrónico enviado exitosamente")
+            # Eliminación de productos del carrito después de la compra
+            cur = mysql.connection.cursor()
+            cur.execute("DELETE FROM carrito WHERE id_usuario = %s", (id_usuario,))
+            mysql.connection.commit()
+            cur.close()
+            
+            return jsonify({'message': 'Compra realizada exitosamente'})
+        else:
+            print("Error al enviar el correo electrónico")
+            return jsonify({'error': 'Error al enviar el correo electrónico'}), 500
+        
+        
+    except Exception as e:
+        print(f"Error inesperado: {str(e)}")
+        return jsonify({'error': 'Error al realizar la compra'}), 500
+    
+#-------APIS-----
+@app.route('/listar-producto', methods=['GET'])
+def produc():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM productos")
+    productos = cur.fetchall()
+
+    # Crear una lista de diccionarios con los datos de los productos
+    productos_list = []
+    for producto in productos:
+        producto_dict = {
+            'id': producto,
+            'nombre': producto,
+            'colores': producto,
+            'tallas': producto,
+            'precio': producto,
+            'imagen': producto
+        }
+        productos_list.append(producto_dict)
+    
+    
+
+    return jsonify(productos=productos_list)
+
+@app.route('/listar-entrenadores', methods=['GET'])
+def listarEntrenadores():
+    
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM entrenadores")
+        entrenadores = cur.fetchall()
+
+        # Crear una lista de diccionarios con los datos de los entrenadores
+        entrenadores_list = []
+        for entrenador in entrenadores:
+            entrenador_dict = {
+                'id': entrenador,
+                'nombre': entrenador,
+                'descripcion': entrenador,
+                'foto': entrenador
+            }
+            entrenadores_list.append(entrenador_dict)
+
+        return jsonify(entrenadores=entrenadores_list)
+
+    
+
 
 if __name__ == "__main__":
+    mail.init_app(app)
+
     app.secret_key="sebastian_2"
+
     app.run(debug=True)

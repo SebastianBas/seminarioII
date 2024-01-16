@@ -228,21 +228,20 @@ body{
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="crear-registro" method="POST">
-                <h1>Crear Una Cuenta <br><br></h1>
+                <h1>{{ _("Crear Una Cuenta") }} <br><br></h1>
                 <input type="text" name="txtNombre" placeholder="Nombres">
                 <input type="email" name="txtCorreo" placeholder="e-mail">
                 <input type="password" name="txtPassword" placeholder="contraseña">
-                <button  type="submit">Registrarse</button>
+                <button type="submit">{{ _("Registrarse") }}</button>
                 <br>
             </form>
         </div>
         <div class="form-container sign-in">
             <form method="POST" action="acceso-login">
-                <h1>Iniciar Sesion <br><br></h1>
+                <h1>{{ _("Iniciar Sesión") }} <br><br></h1>
                 <input type="email" name="txtCorreo" placeholder="e-mail" required>
                 <input type="password" name="txtPassword" placeholder="Contraseña" required>
-                <a href="#">¿Olvidó su contraseña?</a>
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit">{{ _("Iniciar Sesión") }}</button>
                 <br>
                 <div class="alert alert-danger" role="alert">
                     {% if mensaje %}
@@ -255,14 +254,15 @@ body{
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Bienvenido a PowerGym</h1>
-                    <p>Hola, porfavor ingresa tus datos para hacer un registro exitoso</p>
-                    <button class="hidden" id="login">Iniciar Sesion</button>
+                    <h1>{{ _("Bienvenido a PowerGym") }}</h1>
+                    <p>{{ _("Hola, por favor ingresa tus datos para hacer un registro exitoso") }}</p>
+                    <button class="hidden" id="login">{{_("Iniciar Sesion")}}</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hola, Guerrero!</h1>
-                    <p>Registrate, y se parte de los mejores, con los mejores planes y servicios</p>
-                    <button class="hidden" id="register">Inscribete</button>
+                    <h1>{{ _("Hola, Guerrero!") }}</h1>
+                    <p>{{ _("Regístrate, y sé parte de los mejores, con los mejores planes y servicios") }}</p>
+                    <button class="hidden" id="register">{{ _("Inscríbete") }}</button>
+
                 </div>
             </div>
         </div>

@@ -1,0 +1,406 @@
+# English translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-01-15 09:48-0500\n"
+"PO-Revision-Date: 2024-01-15 09:50-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+msgid "Bienvenido a"
+msgstr "Welcome to"
+
+msgid "Sobre Nosotros"
+msgstr "About Us"
+
+msgid "Donde cada esfuerzo cuenta."
+msgstr "Where every effort counts."
+
+msgid "Únete a nosotros hoy"
+msgstr "Join us today"
+
+msgid "cada sudor, cada esfuerzo, cada gramo de determinación te acerca a tu mejor versión. ¡Ven y descubre tu potencial oculto con nosotros!"
+msgstr "every sweat, every effort, every gram of determination brings you closer to your best version. Come and discover your hidden potential with us!"
+
+msgid "En <strong style='color: yellow;'>PowerGym</strong>, cada sudor, cada esfuerzo, cada gramo de determinación te acerca a tu mejor versión. ¡Ven y descubre tu potencial oculto con nosotros!" 
+msgstr "At <strong style='color: yellow;'>PowerGym</strong>, every drop of sweat, every effort, every gram of determination brings you closer to your best version. Come and discover your hidden potential with us!"
+
+msgid "Equipamiento moderno"
+msgstr "Modern Equipment"
+
+msgid "Ofrecemos una amplia gama de equipos de gimnasio de alta calidad y modernos para ayudarte a alcanzar tus metas de fitness."
+msgstr "We offer a wide range of high-quality and modern gym equipment to help you achieve your fitness goals."
+
+msgid "Clases de grupo"
+msgstr "Group Classes"
+
+msgid "Nuestras clases de grupo son una excelente manera de mantenerse motivado, desafiarse a sí mismo y divertirse mientras hace ejercicio."
+msgstr "Our group classes are an excellent way to stay motivated, challenge yourself, and have fun while exercising."
+
+msgid "Entrenadores profesionales"
+msgstr "Professional Trainers"
+
+msgid "Nuestros entrenadores profesionales están aquí para guiarte y ayudarte a alcanzar tus metas de fitness."
+msgstr "Our professional trainers are here to guide you and help you achieve your fitness goals."
+
+msgid "Lo que nuestros miembros dicen"
+msgstr "What Our Members Say"
+
+msgid "PowerGym ha cambiado mi vida. Los entrenadores son increíbles y el ambiente es muy acogedor."
+msgstr "PowerGym has changed my life. The trainers are amazing, and the atmosphere is very welcoming."
+
+msgid "Miembro satisfecho"
+msgstr "Satisfied Member"
+
+msgid "Las clases de grupo son muy divertidas y motivadoras. ¡Recomiendo PowerGym a todos!"
+msgstr "Group classes are very fun and motivating. I recommend PowerGym to everyone!"
+
+msgid "El equipamiento es moderno y siempre está limpio. Nuestro Gimnasio es el mejor gimnasio al que he ido."
+msgstr "The equipment is modern and always clean. Our gym is the best gym I've ever been to."
+
+msgid "Servicios"
+msgstr "Services"
+
+msgid "En POWER GYM, no solo trabajamos nuestros músculos, trabajamos en nuestros sueños..."
+msgstr "At POWER GYM, we don't just work our muscles, we work on our dreams..."
+
+msgid "Horario de apertura"
+msgstr "Opening Hours"
+
+msgid "Lunes - Viernes: 6:00 AM - 10:00 PM"
+msgstr "Monday - Friday: 6:00 AM - 10:00 PM"
+
+msgid "Sábado - Domingo: 8:00 AM - 8:00 PM"
+msgstr "Saturday - Sunday: 8:00 AM - 8:00 PM"
+
+msgid "Contacto"
+msgstr "Contact"
+
+msgid "Dirección: Colombia"
+msgstr "Address: Colombia"
+
+msgid "Teléfono: +57 123 456 7890"
+msgstr "Phone: +57 123 456 7890"
+
+msgid "Síguenos"
+msgstr "Follow Us"
+
+msgid "© 2023 PowerGym. Todos los derechos reservados."
+msgstr "© 2023 PowerGym. All rights reserved."
+
+msgid "Sobre Nosotros"
+msgstr "About Us"
+
+msgid "Nuestra Historia"
+msgstr "Our Story"
+
+msgid "En PowerGym, nos enorgullece ser mucho más que un gimnasio; somos una comunidad apasionada que comparte la visión de llevar una vida activa y saludable. Desde nuestros modernos y completos equipos hasta nuestras clases dirigidas por entrenadores expertos, estamos comprometidos en ayudarte a alcanzar tus metas de fitness y bienestar."
+msgstr "At PowerGym, we pride ourselves on being much more than a gym; we are a passionate community that shares the vision of leading an active and healthy life. From our modern and complete equipment to our classes led by expert trainers, we are committed to helping you achieve your fitness and wellness goals."
+
+msgid "Visión"
+msgstr "Vision"
+
+msgid "En PowerGym, nuestra visión es ser el gimnasio de referencia en Colombia y ser reconocidos por ser líderes en la promoción de un estilo de vida saludable en nuestra comunidad. Buscamos inspirar a las personas a alcanzar su máximo potencial en términos de fitness y bienestar, convirtiéndonos en el catalizador de cambios positivos en sus vidas."
+msgstr "At PowerGym, our vision is to be the reference gym in Colombia and be recognized for being leaders in promoting a healthy lifestyle in our community. We aim to inspire people to reach their full potential in terms of fitness and wellness, becoming the catalyst for positive changes in their lives."
+
+msgid "Misión"
+msgstr "Mission"
+
+msgid "Nuestra misión en PowerGym es proporcionar a nuestros miembros un entorno inspirador y de apoyo que fomente la salud, el fitness y el bienestar en todas sus dimensiones. Nos esforzamos por ofrecer programas de entrenamiento excepcionales, nutrición experta y un equipo de entrenadores dedicados para ayudarte a alcanzar tus objetivos y vivir una vida más saludable."
+msgstr "Our mission at PowerGym is to provide our members with an inspiring and supportive environment that promotes health, fitness, and well-being in all its dimensions. We strive to offer exceptional training programs, expert nutrition, and a team of dedicated trainers to help you achieve your goals and live a healthier life."
+
+msgid "Nuestro Equipo"
+msgstr "Our Team"
+
+msgid "En PowerGym, contamos con un equipo de entrenadores altamente capacitados y apasionados que están comprometidos a brindarte el apoyo que necesitas en tu viaje hacia un estilo de vida más saludable. Nuestro personal está aquí para ayudarte a establecer y alcanzar tus metas de fitness, ofrecer orientación en nutrición y proporcionar un ambiente acogedor y motivador para que te sientas como en casa."
+msgstr "At PowerGym, we have a team of highly trained and passionate trainers who are committed to providing you with the support you need on your journey to a healthier lifestyle. Our staff is here to help you set and achieve your fitness goals, offer nutrition guidance, and provide a welcoming and motivating environment for you to feel at home."
+
+msgid "Entrenamiento Personalizado"
+msgstr "Personalized Training"
+
+msgid "En power gym El entrenamiento personalizado es la opción perfecta para aquellos que buscan un enfoque altamente individualizado para alcanzar sus metas de salud y fitness. Entendemos que cada persona es única, con objetivos y necesidades específicas. Nuestro equipo de entrenadores personales certificados está dedicado a brindarte una experiencia de acondicionamiento físico completamente personalizada y efectiva."
+msgstr "At Power Gym, Personalized Training is the perfect choice for those seeking a highly individualized approach to achieve their health and fitness goals. We understand that each person is unique, with specific goals and needs. Our team of certified personal trainers is dedicated to providing you with a completely personalized and effective fitness conditioning experience."
+
+msgid "Mas Información"
+msgstr "More Information"
+
+msgid "Membresias"
+msgstr "Memberships"
+
+msgid "En POWER GYM, creemos en la flexibilidad y la accesibilidad para que todos puedan disfrutar de una experiencia de fitness adaptada a sus necesidades. Ofrecemos una variedad de opciones de membresía diseñadas para satisfacer tus objetivos de acondicionamiento físico, tu estilo de vida y tu presupuesto."
+msgstr "At POWER GYM, we believe in flexibility and accessibility so that everyone can enjoy a fitness experience tailored to their needs. We offer a variety of membership options designed to meet your fitness goals, lifestyle, and budget."
+
+msgid "Entrenadores"
+msgstr "Trainers"
+
+msgid "En POWER GYM, nuestros entrenadores son el corazón de nuestro compromiso contigo para alcanzar tus objetivos de fitness de manera segura y efectiva. Nuestro equipo de entrenadores altamente calificados no solo son expertos en su campo, sino que también son apasionados por tu éxito y bienestar general."
+msgstr "At POWER GYM, our trainers are the heart of our commitment to help you achieve your fitness goals safely and effectively. Our team of highly qualified trainers are not only experts in their field but are also passionate about your overall success and well-being."
+
+msgid "Productos"
+msgstr "Products"
+
+msgid "Horarios"
+msgstr "Schedules"
+
+msgid "Carrito"
+msgstr "Cart"
+
+msgid "Hola"
+msgstr "Hello"
+
+msgid "Cerrar Sesión"
+msgstr "Log Out"
+
+msgid "a los productos de"
+msgstr "to Power GYM Products"
+
+msgid "Bienvenido"
+msgstr "Welcome"
+
+msgid "Colores Disponibles:"
+msgstr "Available Colors: "
+
+msgid "Tallas:"
+msgstr "Sizes:"
+
+msgid "Precio:"
+msgstr " Price: "
+
+msgid "Agregar al carrito"
+msgstr "Add to Cart"
+
+msgid "Carrito de Compras"
+msgstr "Shopping Cart"
+
+msgid "Precio Total:"
+msgstr "Total Price:"
+
+msgid "Comprar Todo"
+msgstr "Buy All"
+
+msgid "Precio: "
+msgstr "Price: "
+
+msgid "Total: "
+msgstr "Total: "
+
+msgid "Cantidad"
+msgstr "Quantity"
+
+msgid "Eliminar"
+msgstr "Delete"
+
+msgid "Disponibles"
+msgstr "Available "
+
+msgid "Hora de inicio:"
+msgstr "Start Time:"
+
+msgid "Hora de fin:"
+msgstr "End Time:"
+
+msgid "Crear Una Cuenta"
+msgstr "Create an Account"
+
+msgid "Registrarse"
+msgstr "Sign Up"
+
+msgid "Iniciar Sesión"
+msgstr "Log In"
+
+msgid "Bienvenido a PowerGym"
+msgstr "Welcome to PowerGym"
+
+msgid "Hola, por favor ingresa tus datos para hacer un registro exitoso"
+msgstr "Hello, please enter your information for a successful registration"
+
+msgid "Hola, Guerrero!"
+msgstr "Hello, Warrior!"
+
+msgid "Regístrate, y sé parte de los mejores, con los mejores planes y servicios"
+msgstr "Sign up and be part of the best, with the best plans and services"
+
+msgid "Inscríbete"
+msgstr "Sign Up"
+
+msgid "Iniciar Sesion"
+msgstr "Log In"
+
+msgid "Añadir Productos"
+msgstr "Add Products"
+
+msgid "Añadir Horarios"
+msgstr "Add Schedules"
+
+msgid "Añadir Entrenadores"
+msgstr "Add Trainers"
+
+msgid "Agregar"
+msgstr "Add"
+
+msgid "Titulo"
+msgstr "Title"
+
+msgid "Colores"
+msgstr "Colors"
+
+msgid "Talla"
+msgstr "Size"
+
+msgid "Precio"
+msgstr "Price"
+
+msgid "Imagen"
+msgstr "Image"
+
+msgid "Guardar"
+msgstr "Save"
+
+msgid "NUEVO ARTICULO"
+msgstr "NEW ARTICLE"
+
+msgid "Agregar Productos"
+msgstr "Add Products"
+
+msgid "Gestion"
+msgstr "Management"
+
+msgid "de los productos de"
+msgstr "of the products of"
+
+msgid "Agregar Horario"
+msgstr "Add Schedule"
+
+msgid "NUEVO HORARIO"
+msgstr "NEW SCHEDULE"
+
+msgid "Titulo"
+msgstr "Title"
+
+msgid "Hora Inicio"
+msgstr "Start Time"
+
+msgid "Hora Fin"
+msgstr "End Time"
+
+msgid "Guardar"
+msgstr "Save"
+
+msgid "Agregar Entrenador"
+msgstr "Add Trainer"
+
+msgid "NUEVO ENTRENADOR"
+msgstr "NEW TRAINER"
+
+msgid "Nombre"
+msgstr "Name"
+
+msgid "Descripcion"
+msgstr "Description"
+
+msgid "Foto"
+msgstr "Photo"
+
+msgid "Guardar"
+msgstr "Save"
+
+msgid "PowerGym - Personalizado"
+msgstr "PowerGym - Customized"
+
+msgid "Tu camino hacia la mejor versión de ti mismo"
+msgstr "Your path to the best version of yourself"
+
+msgid "Entrenamiento Personalizado"
+msgstr "Personalized Training"
+
+msgid "Descubre los beneficios de nuestro servicio de entrenamiento personalizado."
+msgstr "Discover the benefits of our personalized training service."
+
+msgid "Beneficios del Entrenamiento Personalizado"
+msgstr "Benefits of Personalized Training"
+
+msgid "Programas adaptados a tus objetivos."
+msgstr "Programs tailored to your goals."
+
+msgid "Supervisión constante de un entrenador personal."
+msgstr "Constant supervision from a personal trainer."
+
+msgid "Enfoque en técnicas correctas y prevención de lesiones."
+msgstr "Focus on correct techniques and injury prevention."
+
+msgid "Motivación personalizada para alcanzar tus metas."
+msgstr "Personalized motivation to reach your goals."
+
+msgid "Costo del Servicio"
+msgstr "Cost of Service"
+
+msgid "¡Invierte en tu salud y bienestar!"
+msgstr "Invest in your health and well-being!"
+
+msgid "Consulta nuestros planes y tarifas para el entrenamiento personalizado."
+msgstr "Check out our plans and rates for personalized training."
+
+msgid "Descubre nuestras Membresías"
+msgstr "Discover our Memberships"
+
+msgid "Membresía Básica"
+msgstr "Basic Membership"
+
+msgid "Perfecta para principiantes"
+msgstr "Perfect for beginners"
+
+msgid "Acceso a la sala de pesas y áreas de cardio. Participación en clases grupales estándar. Asesoramiento básico con entrenadores."
+msgstr "Access to the weight room and cardio areas. Participation in standard group classes. Basic guidance with trainers."
+
+msgid "$50.000/mes"
+msgstr "$50,000/month"
+
+msgid "Regístrate Ahora!"
+msgstr "Register Now!"
+
+msgid "Membresía Premium"
+msgstr "Premium Membership"
+
+msgid "Experiencia de lujo"
+msgstr "Luxury Experience"
+
+msgid "Acceso completo a todas las áreas, incluyendo instalaciones de lujo. Clases grupales premium. Asesoramiento más personalizado con entrenadores. Descuentos en servicios adicionales."
+msgstr "Full access to all areas, including luxury facilities. Premium group classes. More personalized guidance with trainers. Discounts on additional services."
+
+msgid "$100.000/mes"
+msgstr "$100,000/month"
+
+msgid "Membresía Estudiantil"
+msgstr "Student Membership"
+
+msgid "Especial para estudiantes"
+msgstr "Special for students"
+
+msgid "Tarifas reducidas para estudiantes. Acceso a servicios básicos y áreas de entrenamiento."
+msgstr "Reduced rates for students. Access to basic services and training areas."
+
+msgid "$30.000/mes"
+msgstr "$30,000/month"
+
+msgid "ENTRENADORES"
+msgstr "TRAINERS"
+
+msgid "DISPONIBLES"
+msgstr "AVAILABLE"
+
+
+
+
+
+

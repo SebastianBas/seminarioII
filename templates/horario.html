@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <h1 class="text-center" style="font-family: 'Copperplate', serif;">
-            <span style="color: yellow;">Horarios</span> <span style="color: white;">Disponibles</span>
+            <span style="color: yellow;">{{ _("Horarios") }}</span> <span style="color: white;">{{ _("Disponibles") }}</span>
         </h1>
         {% for horario in horarios %}
     <div class="col-sm-4 mb-4">
@@ -15,7 +15,7 @@
         <div class="card" style="background-color: black; color: white;">
             <div class="card-body text-center">
                 <h5 class="card-title" style="color: yellow;">{{ horario.nombre }}</h5>
-                <p class="card-text">Hora de inicio: {{ horario.horaInicio }} <br> Hora de fin: {{ horario.horaFin }}</p>
+                <p class="card-text">{{ _("Hora de inicio:") }} {{ horario.horaInicio }} <br> {{ _("Hora de fin:") }} {{ horario.horaFin }}</p>
             </div>
             
         </div>
