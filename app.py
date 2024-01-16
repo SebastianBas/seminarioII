@@ -574,12 +574,10 @@ def listarEntrenadores():
 
         return jsonify(entrenadores=entrenadores_list)
 
-    
 
-
-if __name__ == "__main__":
+if __name__ == '_main_':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port,debug=False)
     mail.init_app(app)
-
     app.secret_key="sebastian_2"
 
-    app.run(debug=True)
